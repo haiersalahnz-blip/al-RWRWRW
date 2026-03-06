@@ -3,15 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <style>
+      /* حاوية الشجرة الرئيسية */
+      .tree-container { 
+          overflow-x: auto !important; /* تفعيل التمرير الأفقي */
+          -webkit-overflow-scrolling: touch; /* تمرير ناعم على آيفون */
+          display: block;
+          width: 100%;
+          cursor: grab; /* ليعرف المستخدم أنه يمكنه السحب */
+      }
 
+      /* الخطأ كان هنا: أضفنا نقطة قبل اسم الكلاس ليعمل التنسيق */
+      .tree-container > div {
+          min-width: 1000px; /* يمنع الشجرة من الانضغاط ويجبر التمرير */
+          padding: 20px;
+      }
+    </style>
 
     <title>شجرة عائلة الزهيران</title>
 
-
     <meta name="application-name" content="شجرة عائلة الزهيران">
     <meta name="apple-mobile-web-app-title" content="شجرة عائلة الزهيران">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="description" content="تطبيق تفاعلي لعرض وإدارة شجرة عائلة الزهيران.">
-
 
     <meta property="og:site_name" content="شجرة عائلة الزهيران">
     <meta property="og:title" content="شجرة عائلة الزهيران">
