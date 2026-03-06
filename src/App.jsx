@@ -351,18 +351,22 @@ const handleZoomReset = () => {
     titleFont={titleFontCss}      
         />
 
-   
+  
         <div
           ref={viewportRef}
-          className="tree-viewport relative z-0 pt-8 px-8 text-center overflow-x-auto overflow-y-auto min-h-[calc(100vh-80px)]"
+          className="tree-viewport relative z-0 pt-8 px-4 md:px-8 text-center overflow-x-auto overflow-y-auto min-h-[calc(100vh-80px)] touch-pan-x touch-pan-y"
+          style={{ WebkitOverflowScrolling: 'touch' }}
         >
-       
-          <div className="tree-canvas inline-block min-w-max"
-          style={{
-      transform: `scale(${zoom})`,
-      transformOrigin: "top center",   
-      willChange: "transform",
-    }}>
+          <div 
+            className="tree-canvas inline-block"
+            style={{
+              transform: `scale(${zoom})`,
+              transformOrigin: "top center",
+              willChange: "transform",
+              minWidth: zoom < 1 ? "100%" : "max-content", 
+              paddingBottom: "100px" 
+            }}
+          >
             <div className="inline-block">
               {viewRootNode ? (
                 <div id={`node-${viewRootNode.id}`}>
